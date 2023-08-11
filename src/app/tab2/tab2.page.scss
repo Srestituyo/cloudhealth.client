@@ -1,0 +1,20 @@
+ion-tabs{
+    margin-top: 5rem;
+}
+
+ion-tab-bar{
+    border-radius: 35px;
+    background-color: #B9D8ED;
+    width: 367px;
+    height: 58px;
+}
+
+.custom-tab-button{
+    background-color: transparent;
+}
+
+ion-tab-button{
+    :host{
+        background-color: transparent;
+    }
+}

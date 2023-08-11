@@ -1,0 +1,7 @@
+{
+  "name": "health cloud",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
