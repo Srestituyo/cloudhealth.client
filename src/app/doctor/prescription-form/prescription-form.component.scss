@@ -1,0 +1,23 @@
+.scrollable-content {
+    max-height: 300px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+  }
+
+  ion-avatar {
+    --border-radius: 4px;
+    right: 0;
+  }
+
+  .avatar-column{
+    text-align: -webkit-right;
+  }
+
+  .medication-title-column{
+    margin-top: 2rem;
+  }
+
+
+.title-column{
+  top: -0.7rem;
+  text-align: center;
+}

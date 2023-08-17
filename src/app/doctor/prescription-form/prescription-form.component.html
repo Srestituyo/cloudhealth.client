@@ -1,0 +1,152 @@
+<ion-content class="ion-padding" [fullscreen]="false">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button fill="clear" href="/doctor"><ion-icon name="chevron-back-outline"></ion-icon></ion-button>
+      </ion-col>
+      <ion-col class="title-column"><h2>Create prescription</h2></ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  <form [formGroup]="prescriptionForm" (ngSubmit)="onSubmit()">
+    <ion-list lines="full">
+      <ion-item [button]="true" [detail]="false" id="select-medications">
+        <ion-label>Medication</ion-label>
+
+        <div slot="end" id="selected-medications">
+          {{ selectedMedicationText }}
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-modal trigger="select-medications" #modal>
+      <ng-template>
+        <app-typeahead
+          class="ion-page"
+          title="Medications"
+          [items]="medications"
+          [selectedItems]="selectedMedication"
+          (selectionChange)="medicationSelectionChanged($event)"
+          (selectionCancel)="modal.dismiss()"
+        ></app-typeahead>
+      </ng-template>
+    </ion-modal>
+    <br />
+    
+    <ion-list lines="full">
+
+      <div class="scrollable-content">
+        <div *ngIf="selectedMedication.length > 0">
+          <ng-container formArrayName="prescribedMedications">
+
+          <ng-container *ngFor="let medicationGroup of medication_form_array.controls; let i = index">
+            <ion-card >
+              <ion-card-header>
+                <ion-card-title>    
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col class="medication-title-column">                 
+                        <ion-label><strong>Medication: </strong>{{ medicationGroup.get('name')?.value }}</ion-label>
+                      </ion-col>
+                      <ion-col class="avatar-column">
+                        <ion-avatar>
+                        <img alt="Silhouette of a person's head" [src]="medicationGroup.get('image')?.value" />
+                        </ion-avatar>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>          
+                  
+                </ion-card-title>
+              </ion-card-header>
+            
+              <ng-container [formGroupName]="i">
+                <ion-card-content> 
+                  <ion-input
+                  label="Dosage"
+                  label-placement="floating"
+                  fill="outline"
+                  type="text"
+                  formControlName="dosage"
+                  placeholder="Enter dosage"
+                ></ion-input>
+                <br>
+                <ion-select formControlName="route" fill="outline" label="Route" placeholder="Select route">
+                  <ion-select-option *ngFor="let route of administrationRoutes" [value]="route.value">
+                    {{ route.label }}
+                  </ion-select-option>
+                </ion-select>
+               
+                <br>
+                <ion-input
+                label="Frequency"
+                label-placement="floating"
+                fill="outline"
+                type="text"
+                formControlName="frequency"
+                placeholder="Enter frequency"
+              ></ion-input>
+               <br>
+              
+                  <!-- <ion-select formControlName="dosageStrength" fill="outline" label="Dosage Strength" placeholder="Select dosage strength">
+                    <ion-select-option *ngFor="let strength of dosageStrengths" [value]="strength.value">{{ strength.label }}</ion-select-option>
+                  </ion-select> -->
+                  
+              </ion-card-content>
+              </ng-container>
+          
+            </ion-card>  
+          </ng-container>
+        </ng-container>
+
+        </div>
+      </div>
+       
+        
+    </ion-list> 
+    <br />
+
+    <br />
+    <ion-input
+      label="Condition"
+      label-placement="floating"
+      fill="outline"
+      formControlName="condition"
+      type="text"
+      placeholder="Enter text"
+    ></ion-input>
+    <br />
+    <ion-textarea
+      label="Notes"
+      labelPlacement="floating"
+      fill="outline"
+      [autoGrow]="true"
+      placeholder="Enter text"
+      formControlName="notes"
+    ></ion-textarea>
+
+    <br />
+    <ion-textarea
+      label="Instructions"
+      labelPlacement="floating"
+      fill="outline"
+      [autoGrow]="true"
+      placeholder="Enter text"
+      formControlName="instructions"
+    ></ion-textarea>
+
+    <br />
+    <ion-input
+      label="Expiration date"
+      label-placement="floating"
+      fill="outline"
+      formControlName="expirationDate"
+      type="date"
+      placeholder="Enter text"
+    ></ion-input>
+
+    <br />
+    <ion-button  type="submit" expand="full" shape="round" color="primary"
+      >Complete</ion-button
+    >
+  </form>
+</ion-content>

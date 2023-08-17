@@ -1,0 +1,25 @@
+<ion-content class="ion-padding" [fullscreen]="false">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <ion-input
+      label="Username"
+      label-placement="floating"
+      fill="outline"
+      formControlName="username"
+      placeholder="Enter text"
+    ></ion-input>
+    <br>
+    <ion-input
+      label="Password"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Enter text"
+      formControlName="password"
+      type="password"
+    ></ion-input> 
+    <br>
+    <ion-button type="submit" expand="full" shape="round" color="primary">Login</ion-button>
+
+  <small>Don’t have an account? <ion-button fill="clear" href="/patient/signup">Sign Up</ion-button></small>
+  </form>
+</ion-content>

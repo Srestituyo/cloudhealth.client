@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4.2">
+          <a  href="/pharmacy">         
+             <ion-icon name="chevron-back-outline"></ion-icon>
+          </a>
+        </ion-col>
+        <ion-col>
+          <ion-title>
+            Prescription
+          </ion-title>
+        </ion-col>
+        
+       </ion-row>
+    </ion-grid>  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-segment color="secondary" value="secondary" (ionChange)="segmentChanged($event)">
+    <!-- <ion-segment-button value="prescription">
+      <ion-label>Prescription</ion-label>
+    </ion-segment-button> -->
+    <!-- <ion-segment-button value="medical-history">
+      <ion-label>Medical History</ion-label>
+    </ion-segment-button> -->
+  </ion-segment>
+
+  <div *ngIf="selectedSegment === 'prescription'" > 
+    <br>
+    <div class="scrollable-content">
+      <app-prescription *ngIf="patientId !== ''" [patientId]="patientId"></app-prescription>
+    </div>
+ 
+  </div>
+</ion-content>

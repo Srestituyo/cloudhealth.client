@@ -1,0 +1,130 @@
+<ion-content class="ion-padding" [fullscreen]="false">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4.2">
+        <a  href="/login">         
+           <ion-icon name="chevron-back-outline"></ion-icon>
+        </a>
+      </ion-col>
+      <ion-col>
+        <ion-title>
+          Sign up
+        </ion-title>
+      </ion-col>
+      
+     </ion-row>
+  </ion-grid>    <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
+    <ion-input
+      label="Firstname"
+      label-placement="floating"
+      fill="outline"
+      formControlName="name"
+      placeholder="Enter text"
+    ></ion-input>
+    <br>
+    <ion-input
+    label="Lastname"
+    label-placement="floating"
+    fill="outline"
+    formControlName="lastname"
+    placeholder="Enter text"
+  ></ion-input>
+    <br>
+    <ion-input
+    label="Username"
+    label-placement="floating"
+    fill="outline"
+    formControlName="username"
+    placeholder="Enter text"
+  ></ion-input>
+    <br>
+    <ion-input
+    label="Email address"
+    label-placement="floating"
+    fill="outline"
+    formControlName="email"
+    type="email"
+    placeholder="Enter text"
+  ></ion-input>
+    <br>
+      <ion-input
+      label="Date of birth"
+      label-placement="floating"
+      fill="outline"
+      formControlName="birthDate"
+      type="date"
+      placeholder="Enter text"
+    ></ion-input> 
+    <br>
+    <br>
+    <ion-item>
+      <ion-select  formControlName="documentType" label="Document Type" placeholder="Select document type">
+        <ion-select-option value="P">Passport</ion-select-option>
+        <ion-select-option value="C">Cédula de identidad</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-input
+    label="Numero de documento"
+    label-placement="floating"
+    fill="outline"
+    formControlName="documentNumber"
+    type="text"
+    placeholder="Enter text"
+  ></ion-input> 
+  <br>
+  <br>
+  <ion-input
+  label="Numero de telefono"
+  label-placement="floating"
+  fill="outline"
+  formControlName="phoneNumber"
+  type="text"
+  placeholder="Enter text"
+></ion-input> 
+<br>
+<ion-item>
+  <ion-select  formControlName="specialist" label="Specialist" placeholder="Select specialist">
+    <ion-select-option value="Cardiólogo">Cardiólogo</ion-select-option>
+    <ion-select-option value="Neurólogo">Neurólogo</ion-select-option>
+    <ion-select-option value="Cirujano Ortopédico">Cirujano Ortopédico</ion-select-option>
+    <ion-select-option value="Gastroenterólogo">Gastroenterólogo</ion-select-option>
+    <ion-select-option value="Neumólogo">Neumólogo</ion-select-option>
+    <ion-select-option value="Dermatólogo">Dermatólogo</ion-select-option>
+    <ion-select-option value="Obstetra/Ginecólogo (OB/GYN)">Obstetra/Ginecólogo (OB/GYN)</ion-select-option>
+    <ion-select-option value="Urólogo">Urólogo</ion-select-option>
+    <ion-select-option value="Oftalmólogo">Oftalmólogo</ion-select-option>
+    <ion-select-option value="Psiquiatra">Psiquiatra</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<br>
+
+    <ion-item>
+      <ion-select  formControlName="gender" label="Gender" placeholder="Select gender">
+        <ion-select-option value="M">Masculine</ion-select-option>
+        <ion-select-option value="F">Feminine</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br>
+    <ion-input
+      label="Password"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Enter text"
+      formControlName="password"
+      type="password"
+    ></ion-input> 
+    <br>
+    <ion-input
+      label="Confirm  password"
+      label-placement="floating"
+      fill="outline"
+      placeholder="Enter text"
+      formControlName="confirmPassword"
+      type="password"
+    ></ion-input> 
+    <br>
+    <ion-button type="submit" expand="full" shape="round" color="primary">Sign Up</ion-button>
+  </form>
+</ion-content>
